@@ -57,23 +57,23 @@ Ticketing System:
         ENTERPRISE USE:
             - Once you finish all of the above, you can start implementing the enterprise functionality of it.
 
-            COMPANY ACCOUNT CREATION:
-                - Create a page that lets a company create its own account, for tickets to be sent to there page.
-                    - Company accounts will have a unique url for there ticketing management system.
-                    - Additionally each company will have its own requests route
-                        - Users that send requests using that route will send requests to the client.
+        COMPANY ACCOUNT CREATION:
+            - Create a page that lets a company create its own account, for tickets to be sent to there page.
+                - Company accounts will have a unique url for there ticketing management system.
+                - Additionally each company will have its own requests route
+                    - Users that send requests using that route will send requests to the client.
 
                 
-            PREVENT FAKE TICKET REQUESTS FROM USERS OF DIFFERENT COMPANIES:
-                - We will need to ensure that users cannot send ticket requests to a company they do not work for.
-                - Users will create there own accounts
-                    - The accounts will ask for a company ID, this ID is given to the company when they create an account.
-                    - additionally the ticket requests page will ask for a company code
-                        - this is a code that companies can update to ensure the privacy and safe use of there ticketing page.
+        PREVENT FAKE TICKET REQUESTS FROM USERS OF DIFFERENT COMPANIES:
+            - We will need to ensure that users cannot send ticket requests to a company they do not work for.
+            - Users will create there own accounts
+                - The accounts will ask for a company ID, this ID is given to the company when they create an account.
+                - additionally the ticket requests page will ask for a company code
+                    - this is a code that companies can update to ensure the privacy and safe use of there ticketing page.
                 
-            PAYMENT SYSTEM:
-                - Find a way, possibly with strip to make companies pay a monthly or yearly subscription to use the accounts and ticketing system.
-                - If payment does not go through give them a warning, after 3 warning delete account.
+        PAYMENT SYSTEM:
+            - Find a way, possibly with strip to make companies pay a monthly or yearly subscription to use the accounts and ticketing system.
+            - If payment does not go through give them a warning, after 3 warning delete account.
 
     - Completed:
 
