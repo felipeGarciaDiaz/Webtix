@@ -1,0 +1,53 @@
+<html>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+        body {
+            background-color: #eeeeee;
+            color: #1a1a1a;
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            padding-top: 10%;
+
+        }
+        #thanks {
+            font-size: 400%;
+        }
+        #instructions {
+            color: #222222;
+            padding: 0% 20% 0% 20%;
+        }
+
+        #button {
+            margin-top: 3%;
+            border-radius: 10px;
+            background-color: #3c70ff;
+            color: #ffffff;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bolder;
+            text-align: center;
+            margin: auto;
+            padding: 1% 3% 1% 3%;
+            box-sizing: content-box;
+            border: none;
+            margin-bottom: 5%;
+        }
+    </style>
+    <body>
+        <h1 id="thanks"><b>Thank You</b></h1>
+        <h1 id="confirmation">Form has been sent!</h1>
+        <h2 id="instructions">We have recieved your form and are processing your request. please allow 24-48 hours for a response. Please do not send duplicate forms as that may delay our response.</h2>
+        <h3 id="priority">If you are a victim of ransomware or blackmail, your request will be marked with our highest priority.</h3>
+        <button id="button">Go Home</button>
+    </body>
+    <script> 
+    
+    document.getElementById("button").onclick = () => {
+        window.location.href = "/"
+    } 
+    document.getElementById("button").onmouseover = () => {
+        document.getElementById("button").style.cursor = "pointer";
+    }
+
+    </script>
+</html>

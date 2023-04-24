@@ -1,0 +1,27 @@
+#login-block {
+    background-color: #ffffff;
+    color: #398AB9;
+    font-size: 150%;
+    border-radius: 10px;
+
+    margin-top: 10%;
+    padding: 2% 5% 2% 5%;
+    
+
+
+}
+#login-title {
+    padding-bottom: 10%;
+}
+
+#l1{
+    padding-top: 20%;
+}
+@media screen and (max-width:600px) {
+
+    #login-block {
+        padding-top: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
