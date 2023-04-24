@@ -1,7 +1,6 @@
 
 Ticketing System:
 
-GIT TOKEN: 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
 
     - Used to manage IT Support tickets from users to IT staff
     - Currently just works as a 1 Company, any x amount of users application.
