@@ -5,13 +5,13 @@ const io = require('socket.io')(http);
 const path = require('path');
 const crypto = require('crypto');
 const mysql = require('mysql');
-
+const jwt = require('jsonwebtoken');
 //Submit request for connection to local mySQL server for tickets management
 const db = mysql.createConnection({
     host:   'localhost',
     user:   'root',
     password:   '',
-    database:   'dos-bros-it',
+    database:   'webtix',
 });
 //Attempt connection to the mySQL server for tickets management and handling
 db.connect((err) => {
@@ -76,19 +76,63 @@ app.post('/repair', (req, res, next) => {
 });
 
 //Handle admin logon requests
-app.post('/login-request', (req, res, next) => {
-    /*  You need to update the token in the front end to true to access tickets,
-        But this is unsecure, make sure the password is hashed and sent securely
-        make sure users cant find vulnerabilities in the login form.
-    '
-
-
-    */
-    console.log('recieved login request', req.body.username, req.body.password);
-    res.redirect('/tickets');
-    next();
-})
+app.post("/login-request", (req, res, next) => {
+    const { username, password } = req.body;
+    if (username === "admin" && password === "password") {
+        const token = jwt.sign({ username }, "test");
+        console.log('valid', req.body);
+        res.status(200).json({ token: token });
+    } else {
+        console.log('invalid', req.body);
+        return res.status(401).json({ message: "invalid credentials" });
+    }
+});
+app.post('/tickets', (req, res, next) => {
+    console.log('sending raw db data');
+    query = "SELECT * FROM tickets";
+    db.query(query, (err, rows, fields) => {
+        if(!err) {
+            console.log(rows, fields);
+            res.send(rows);
+        }else{
+            console.error(err);
+        }
+    });
+});
 
 http.listen(PORT, ()=>{
     console.log('Server Started using port:', PORT);
 });
+
+
+
+/*
+
+
+const authToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if(token === null) {
+        return res.sendStatus(401);
+    }
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if(err) {
+            return res.sendStatus(403);
+        }
+        req.user = user
+        next();
+    });
+}
+
+
+
+
+
+ if(req.body.username === "admin" && req.body.password === "password"){
+        const token = jwt.sign({username}, 'test');
+        res.cookie(token);
+        res.redirect('/tickets')
+    console.log('error');
+   }
+    next();
+*/

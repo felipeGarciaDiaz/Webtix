@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
+//This is the component that isplays the form on the homepage, this is where users can add there information for requests submitions to the company
 function Form(props) {
 	return (
 		<React.Fragment>
 			<form action='/repair' method='POST'>
 				<Grid container spacing={2}>
+					{/* First name of the user*/}
+
 					<Grid item xs={6}>
 						<TextField
 							sx='width: 80%'
@@ -14,6 +17,8 @@ function Form(props) {
 							name='firstName'
 						/>
 					</Grid>
+					{/* Last name of the user */}
+
 					<Grid item xs={6}>
 						<TextField
 							sx='width: 80%'
@@ -23,6 +28,8 @@ function Form(props) {
 							name='lastName'
 						/>
 					</Grid>
+					{/* Email of the user*/}
+
 					<Grid item xs={12}>
 						<TextField
 							sx='width: 90%'
@@ -32,6 +39,8 @@ function Form(props) {
 							name='email'
 						/>{" "}
 					</Grid>
+					{/* Phone number for the user*/}
+
 					<Grid item xs={12}>
 						<TextField
 							sx='width: 90%'
@@ -41,6 +50,8 @@ function Form(props) {
 							name='phone'
 						/>{" "}
 					</Grid>
+					{/* Description of the service being requested by the user*/}
+
 					<Grid item xs={12}>
 						<TextField
 							id='outlined-multiline-static'
@@ -51,6 +62,8 @@ function Form(props) {
 							name='request'
 						/>
 					</Grid>
+					{/* Submit button to send service over to web-server, form cleanup and security handled through the backend*/}
+
 					<Grid item xs={12}>
 						<Button id='submit-repair-request' variant='contained' type='submit'>
 							Submit

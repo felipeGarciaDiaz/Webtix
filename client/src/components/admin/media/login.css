@@ -11,7 +11,11 @@
 
 }
 #login-title {
-    padding-bottom: 10%;
+    padding-bottom: 3%;
+}
+
+#error-message {
+    color: #ff4652;
 }
 
 #l1{

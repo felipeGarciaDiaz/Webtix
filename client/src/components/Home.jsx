@@ -15,7 +15,6 @@ import {
 
 //HOME PAGE: this is where the users will submit there ticket requests.
 function Home(props) {
-
 	//fast load, and add service icons and messages for the users to know what you offer as a service
 	const serviceList = [
 		{
