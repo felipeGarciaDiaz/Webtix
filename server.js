@@ -6,6 +6,7 @@ const path = require('path');
 const crypto = require('crypto');
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
+const cors = require('cors')
 //Submit request for connection to local mySQL server for tickets management
 const db = mysql.createConnection({
     host:   'localhost',
@@ -24,27 +25,38 @@ db.connect((err) => {
 })
 const PORT = 7072;
 
-/*
-app.use('/static', express.static(path.join(__dirname, '../client/build//static')));
-app.get('*', function(req, res) {
-  res.sendFile('index.html', {root: path.join(__dirname, '../../client/build/')});
-});
-*/
 
 //Boilerplat express code, to setup the files on the frontend
 app.use(express.static(path.join(__dirname, "client/build/")));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cors());
 
+//use * allows us to access all routes but causes rendering issues in the app.get() code below.
+
+app.get('/tickets', (req, res, next) => {
+    console.log('sending raw db data');
+    query = "SELECT * FROM `tickets`";
+    db.query(query, (err, rows, fields) => {
+        if(!err) {
+            //const data = {data: rows}
+            res.status(200).json(rows);
+ 
+        }else{
+            console.error(err);
+        }
+    });
+});
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, "client/build/", "index.html"));
 });
-
 //Once a ticket is submitted, users are redirected to /repair
 app.post('/repair', (req, res, next) => {   
     //Prepare and submit the form to the mySQL server, for security using ? as operators
-    query = "INSERT INTO tickets (firstName, lastName, email, phone, description) VALUES (?)";
+    id = crypto.randomBytes(8).toString("hex");
+    query = "INSERT INTO tickets (id, firstName, lastName, email, phone, description) VALUES (?)";
         const data = [
+        id,
         req.body.firstName, 
         req.body.lastName,
         req.body.email, 
@@ -75,7 +87,11 @@ app.post('/repair', (req, res, next) => {
 
 });
 
+
 //Handle admin logon requests
+const authenticatorJWT = (auth) => {
+    console.log('auth tokens');
+}
 app.post("/login-request", (req, res, next) => {
     const { username, password } = req.body;
     if (username === "admin" && password === "password") {
@@ -87,18 +103,7 @@ app.post("/login-request", (req, res, next) => {
         return res.status(401).json({ message: "invalid credentials" });
     }
 });
-app.post('/tickets', (req, res, next) => {
-    console.log('sending raw db data');
-    query = "SELECT * FROM tickets";
-    db.query(query, (err, rows, fields) => {
-        if(!err) {
-            console.log(rows, fields);
-            res.send(rows);
-        }else{
-            console.error(err);
-        }
-    });
-});
+
 
 http.listen(PORT, ()=>{
     console.log('Server Started using port:', PORT);

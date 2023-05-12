@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
+//Simple navbar showcasing the companies name, and information available for that company.
 function NavBar(props) {
 	return (
 		<React.Fragment>

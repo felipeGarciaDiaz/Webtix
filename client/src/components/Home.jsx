@@ -15,6 +15,7 @@ import {
 
 //HOME PAGE: this is where the users will submit there ticket requests.
 function Home(props) {
+
 	//fast load, and add service icons and messages for the users to know what you offer as a service
 	const serviceList = [
 		{
@@ -54,12 +55,11 @@ function Home(props) {
 				<Typography align='center'>
 					<div id='content-block'>
 						<h1 id='content-title' className='text-7xl text-center'>
-							Dos Bros
+							Webtix
 						</h1>
 						<p id='content-desc' className='text-2xl text-center'>
-							We are a new local IT repair business in the USF area, offering cheap
-							repairs with convenient locations! If your in need of a repair, read
-							about our services, then fill out the form below.
+							We are the creators of the webtix platform! This page servers as an excelent example of what your page can look like,
+							and how your users can submit and request ticket repair requests.
 						</p>
 
 						{/* See Form.jsx, this is the form where the users will submit there requests through */}

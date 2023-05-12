@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
-
+//Component for quickly creating additional UI elements of the services that the company offers to all the users with access to that company.
 function Services(props) {
 	return (
 		<React.Fragment>

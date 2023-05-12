@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npm run build-client && node server",
+    "dev-start": "concurrently \"npm start\" \"cd client && npm start\"",
     "start-local": "npm run build-client && PORT=5051 node server",
     "build-client": "cd client && npm run build && cd .."
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.3.0",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
     "socket.io": "^4.6.1"
   }
 }

@@ -7,7 +7,7 @@ function Protected() {
 	
 	const token = localStorage.getItem('token');
 	console.log(localStorage.getItem('token'));
-	return true ? <Outlet /> : <Navigate to='/admin' />;
+	return token ? <Outlet /> : <Navigate to='/admin' />;
 }
 
 export default Protected;
