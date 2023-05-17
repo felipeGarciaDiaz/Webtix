@@ -32,16 +32,15 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 
-//use * allows us to access all routes but causes rendering issues in the app.get() code below.
 
-app.get('/tickets', (req, res, next) => {
+app.get('/db-data', (req, res, next) => {
     console.log('sending raw db data');
     query = "SELECT * FROM `tickets`";
     db.query(query, (err, rows, fields) => {
         if(!err) {
             //const data = {data: rows}
-            res.status(200).json(rows);
- 
+            res.status(200);
+            res.send({rows});
         }else{
             console.error(err);
         }
