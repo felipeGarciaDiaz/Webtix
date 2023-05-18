@@ -50,18 +50,33 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, "client/build/", "index.html"));
 });
 //Once a ticket is submitted, users are redirected to /repair
+let regExValidate = () => {
+    const firstName, lastName, email, phone, request = req.body;
+
+}
+
 app.post('/repair', (req, res, next) => {   
     //Prepare and submit the form to the mySQL server, for security using ? as operators
+    const firstName, lastName, email, phone, request = req.body;
+    let regexName = /^[A-Za-z\s\-']+$/u;
+    let regexEmail = /^[\w.-]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,})+$/u;
+    let regexPhone = /^(\+\d{1,3}\s?)?(\d{1,3}[-.\s]?)?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/gm;
+    let regExDescription = /^[\w\s.,?!@#$%^&*()-[\]{}:;"'<>\|]+$/u;
+
+
     id = crypto.randomBytes(8).toString("hex");
     query = "INSERT INTO tickets (id, firstName, lastName, email, phone, description) VALUES (?)";
+        //If this breaks for some reason add req.body before all those variables that are defined.
         const data = [
         id,
-        req.body.firstName, 
-        req.body.lastName,
-        req.body.email, 
-        req.body.phone, 
-        req.body.request
+        firstName, 
+        lastName,
+        email, 
+        phone, 
+        request
+        
     ]
+
     db.query(query, 
     //Handle the request, and error out or send to the server
     [data], (err, rows, fields) => {
