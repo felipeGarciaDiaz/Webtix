@@ -1,0 +1,89 @@
+{
+    "TICKET1": {
+        "name": "John Doe",
+        "phone": "123-456-7890",
+        "email": "johndoe@example.com",
+        "issue_description": "Data breach detected in the customer database",
+        "solution_log": "1. Received an alert from the propriatery intrusion detection system programmed in Java, about a potential data breach in the customer database.\n2. Isolated the affected server from the network to prevent further unauthorized access.\n3. Engaged the company's cybersecurity incident response team to conduct a thorough investigation.\n4. Determined that the breach was a result of a malicious SQL injection attack on the customer login page.\n5. Analyzed server logs and identified the attacker's IP address as 987.654.321.0, originating from a foreign country.\n6. Implemented temporary measures to mitigate the breach by patching the vulnerability and updating security protocols.\n7. Conducted a forensic analysis to assess the scope and impact of the breach, including potential compromised customer data.\n8. Notified affected customers and provided instructions on steps they should take to protect their information.\n9. Collaborated with legal and compliance teams to ensure compliance with relevant data breach notification laws and regulations.\n10. Enhanced security measures by implementing additional layers of encryption, access controls, and continuous monitoring to prevent future breaches.",
+        "AI-ONLY": "This is a serious security breach, it should be removed from the public system all together"
+    },
+    "TICKET2": {
+        "name": "Sara Smith",
+        "phone": "5553337890",
+        "email": "sarasmith@google.com",
+        "issue_description": "Unable to login to the financial management system",
+        "solution_log": "1. Assessed the user's login credentials and confirmed they were correct and unchanged.\n2. Checked the logs for the financial management system and identified a login error with error code 'FM-554'.\n3. Noticed an unusual login pattern associated with the user's account, suggesting a potential security breach.\n4. Immediately disabled the user's account and performed a security investigation.\n5. Traced the unauthorized login attempts to an external IP address (123.45.67.89) located in an unknown country.\n6. Engaged the company's cybersecurity team to further investigate the incident and initiate necessary measures.\n7. Assisted the user in creating a new account with a strong password, enabling two-factor authentication for enhanced security.\n8. Educated the user about the importance of password hygiene, identifying phishing attempts, and reporting any suspicious activities or login issues promptly.",
+        "AI-ONLY": "IP Address of hacker should be removed, users credentials shouldn't be mentioned, password policy should be removed."
+    },
+    "TICKET3": {
+        "name": "brittany deen",
+        "phone": "333.442.4456",
+        "email": "britdeen@netflix.com",
+        "issue_description": "Encountered an error while accessing HR database",
+        "OPT-OUT": "Yes",
+        "solution_log": "1. Investigated the error message reported by the user when accessing the HR database.\n2. Found that the error was due to a database connectivity issue, with the error code 'DB-256'.\n3. Accessed the database server logs and discovered that the HR database server experienced a temporary service interruption during routine maintenance.\n4. Restored the connection by restarting the HR database service on the server.\n5. Verified the successful reconnection by testing the user's access to the HR database and validating the query results.\n6. Monitored the database server's performance for a period to ensure stability and smooth operation.\n7. Provided user guidance on contacting the IT helpdesk if the issue reoccurs or if any further assistance is required.",
+        "AI-ONLY": "This ticket does not have any Sensitive Information, but they have opted out of ticket logging."
+    },
+    "TICKET4": {
+        "name": "alexa kate",
+        "phone": "222 111 3333",
+        "email": "alexaKate@example.com",
+        "issue_description": "Unable to access personal folder on the network drive",
+        "solution_log": "1. Verified user's permissions for the personal folder 'P:/JohnDoe' on the network drive.\n2. Confirmed that the user's account was part of the 'Personal_Folders' security group.\n3. Noticed that the folder was accidentally moved to an incorrect location during maintenance. It was found at 'S:/Migrated_Folders/JohnDoe'.\n4. Restored the personal folder to its original location 'P:/JohnDoe'.\n5. Ensured proper access control by updating folder permissions, allowing only the user and specific authorized personnel to access the folder.\n6. Reminded the user about company data storage and security policies, emphasizing the importance of backing up critical data and reporting any suspicious activities.",
+        "AI-ONLY": "Personal folder name should be removed, security group should be hidden, company security policy should be removed."
+
+    },
+    "TICKET5": {
+        "name": "Michael Johnson",
+        "phone": "245-433-5050",
+        "email": "johndoe@example.com",
+        "issue_description": "Unable to connect to the company's VPN",
+        "solution_log": "1. Verified michael johnson's network settings and confirmed that they were correctly configured.\n2. Checked the Nord VPN client software version and found it to be outdated (version 2.1.0).\n3. Downloaded the latest version (2.5.2) from the official Nord VPN's website.\n4. Uninstalled the old VPN client software and restarted the system.\n5. Installed the new VPN client software, following the on-screen prompts.\n6. Configured the VPN client with the user's credentials and tested the connection.\n7. Successfully established a VPN connection for the user.\n8. Provided instructions on how to use the VPN client and troubleshoot common issues.",
+        "AI-ONLY": "Users name should not be on the log, the Version of the VPN should be removed, and NORD VPN should just show VPN program instead"
+
+    },
+    "TICKET6": {
+        "name": "Sarah Wilson",
+        "phone": "+1 233-453-7899",
+        "email": "sarawilson@navy.gov",
+        "issue_description": "Forgot password and unable to access the company's intranet",
+        "solution_log": "Reset the user's password as per the company's password reset policy where passwords must be reset every 3 months. Notified the user of the new password '@temp12345' and provided instructions on how to change it after logging in. User successfully regained access to the intranet.",
+        "AI-ONLY": "Company password policy should be anonymous, and the users password should be anonymous"
+
+    },
+    "TICKET7": {
+        "name": "Tara Patelle",
+        "phone": "+54 9 1 123567890",
+        "email": "Tara.Patelle@apple.com",
+        "issue_description": "Printer not responding when trying to print",
+        "solution_log": "Troubleshooted the printer connectivity issue and found that the printer was offline. Restarted the printer, checked the network connection, and cleared the print queue. Printer is now functioning properly, and the user was able to print their documents."
+    },
+    "TICKET8": {
+        "name": "Artur Diego",
+        "phone": "123-455-7833",
+        "email": "ArthurDiego99@example.com",
+        "issue_description": "Computer running slow and freezing frequently",
+        "solution_log": "Performed a system scan and identified multiple malware infections. Isolated the infected files, removed the malware, and optimized the system's performance by cleaning up temporary files and optimizing startup programs. Computer now running smoothly."
+    },
+    "TICKET9": {
+        "name": "Henry knight",
+        "phone": "133.446.7899",
+        "email": "HKnight1999@example.com",
+        "issue_description": "Unable to print from the new marketing software",
+        "solution_log": "1. Verified the user's printer settings within the marketing software.\n2. Found that the software was not detecting the printer correctly due to a compatibility issue with the latest printer driver.\n3. Checked the manufacturer's website and identified an updated printer driver (version 3.2.0) available for download.\n4. Downloaded the new driver and ensured compatibility with the user's operating system (Windows 10, 64-bit).\n5. Uninstalled the existing printer driver and removed any residual files using the manufacturer's uninstall utility.\n6. Installed the updated printer driver, following the provided installation wizard prompts.\n7. Configured the printer settings within the marketing software to use the correct printer and default preferences.\n8. Tested the printing functionality with a sample document and confirmed successful printing.\n9. Provided user guidance on accessing printer settings, troubleshooting basic printing issues, and keeping printer drivers up to date.\n10. Closed the ticket and confirmed user satisfaction with the resolved issue.",
+        "AI-ONLY": "This is the ideal ticket, a lot of information on the log, but no sensitive information is leaked."                
+    },
+    "TICKET10": {
+        "name": "John Doe",
+        "phone": "332.512.4445",
+        "email": "johndoe@example.com",
+        "issue_description": "Received a suspicious email with a potential phishing attempt",
+        "solution_log": "Analyzed the suspicious email and confirmed it to be a phishing attempt. Advised the user to delete the email and provided guidelines on how to identify and avoid such phishing emails in the future.",
+        "AI-ONLY": "This form has no sensitive information, it is perfect but most logs should have more details."
+    },
+    "DATA": "These tickets where mostly generated by chatGPT, The Name, Phone, and Email should all be removed. The issue_description, and solution_log, should be checked to ensure that no sensitive information is found, sensitive information can mean a lot of stuff. bellow are some examples",
+    "SENSITIVE-INFO": "Company names, product names, software names, usernames, human names, addresses, directories, proprietary software, ip addresses, languages used to make custom software in house, phone numbers, anti-virus or anti malware software, password policy, and security issues",
+    "CHAT-GPT-RECCOMENDED-SENSITIVE-INFO": "User account details: Usernames Passwords Access privileges Security question answers Network and infrastructure information: IP addresses Network configurations Server names Firewall rules System configurations and settings: Administrative credentials Encryption keys Configuration files with sensitive information Software licensing details Security-related information: Vulnerability details Security incident reports Malware analysis results Intrusion detection logs Internal IT processes and procedures: IT troubleshooting methodologies Internal network diagrams Backup and recovery strategies Change management procedures Sensitive application or software information: API keys Database connection strings Encryption algorithms or keys Software vulnerabilities and patches Audit and compliance data: Security assessment reports Compliance documentation Incident response plans Privacy impact assessments Third-party information: Vendor contact details Contractual information Non-disclosure agreements Support ticket references with external providers",
+    "CRITICAL-INFORMATION": "Any data that could show that a company is being breached or severely attacked should be waived completely",
+    "OPT-OUT": "If a ticket has the OPT-OUT Paramater as true, it should not be saved."
+}
