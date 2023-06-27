@@ -1,11 +1,11 @@
-import React from "react";
-import Home from "../Home";
-import Nav from "../NavBar"
-import Services from "../Services"
-import TicketingSystem from "./TicketingSystem";
-import Login from "./Login";
-import Protected from "./Protected";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import Home from '../Home';
+import Nav from '../NavBar';
+import Services from '../Services';
+import TicketingSystem from './TicketingSystem';
+import Login from './Login';
+import Protected from './Protected';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //Creates protected routes, that will only allow authorized users to access with authorized credentials.
 //At this point it will be hard coded, securely into the server
@@ -15,10 +15,11 @@ function Service(props) {
 		<Router>
 			<Routes>
 				<Route element={<Protected />}>
-					<Route element={<TicketingSystem />} path='/tickets' />
+					<Route element={<TicketingSystem />} path="/tickets" />
+					<Route element={<TicketingSystem />} path="/api/db-data" />
 				</Route>
-				<Route path='/admin' element={<Login />} />
-				<Route path='/' element={<Home />} />
+				<Route path="/admin" element={<Login />} />
+				<Route path="/" element={<Home />} />
 			</Routes>
 		</Router>
 	);

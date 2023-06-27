@@ -26,8 +26,9 @@ function Form(props) {
 				}),
 			});
 			const result = await res.json();
+			console.log(res.status);
 			if (res.status === 200) {
-				console.log(result);
+				console.log('chatGPT why is this not executing?');
 				fetch('/api/submitted', {
 					method: 'GET',
 				})

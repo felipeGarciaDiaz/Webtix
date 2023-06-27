@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Ticket from './Ticket';
+import socket from '../utils/socket';
 //The ticketing system page, here the mySQL table will display a list of all active tickets to the admins and IT staff
 function TicketingSystem(props) {
 	const [ticketData, setData] = useState([]);
+
 	useEffect(() => {
-		fetch('/api/db-data', {})
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data.rows);
-				console.log(data);
-			})
-			.catch((err) =>
-				console.error(
-					'this is an error, most likley due to an issue with sending the MySQL data over to the client\n' +
-						err
-				)
-			);
+		socket.emit('request-tickets');
+		socket.on('ticket-data', (data) => {
+			setData(data);
+			console.log('socket.io tickets data response: ' + data);
+		});
 	}, []);
 
 	return (
@@ -31,22 +26,16 @@ function TicketingSystem(props) {
 					description={row.description}
 				/>
 			))}
+			<Ticket
+				key={1}
+				firstName="hannah"
+				lastName="parvati"
+				phone="813.995.5899"
+				email="hannah.parvati@jpm.com"
+				description="The servers in server room QA99 are down and need to have a security patch implemented due to a high risk vulnerability affecting multiple different organizations. Thank you!"
+			/>
 		</div>
 	);
 }
 
 export default TicketingSystem;
-
-/*
-{ticketData.map(row => (
-				<div key={row.id}>
-					<p>{row.firstName}</p>
-					<p>{row.lastName}</p>
-
-					<p>{row.phone}</p>
-					<p>{row.email}</p>
-					<p>{row.description}</p>
-					<hr />
-				</div>
-			))}
-*/

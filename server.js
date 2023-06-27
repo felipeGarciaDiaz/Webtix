@@ -8,13 +8,14 @@ const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 //Submit request for connection to local mySQL server for tickets management
+
 const db = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: '',
 	database: 'webtix',
 });
-//Attempt connection to the mySQL server for tickets management and handling
+
 db.connect((err) => {
 	if (err) {
 		console.log(err.code);
@@ -30,18 +31,6 @@ app.use(express.static(path.join(__dirname, 'client/build/')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-
-app.get('/api/db-data', (req, res, next) => {
-	console.log('sending raw db data');
-	query = 'SELECT * FROM `tickets`';
-	db.query(query, (err, rows, fields) => {
-		if (!err) {
-			res.status(200).send({ rows });
-		} else {
-			console.error(err);
-		}
-	});
-});
 
 app.get('/api/submitted', (req, res, next) => {
 	res.status(200).json({ isSubmitted: true });
@@ -95,15 +84,6 @@ app.post('/repair', (req, res, next) => {
 		req.body.phone,
 		req.body.request
 	);
-	//Sends the form completed page to users, preferably we can loop back to the form in the future.
-	/*res.sendFile(path.join(__dirname, 'resp', 'complete.html'), (err) => {
-		if (err) {
-			console.error(err);
-			res.status(500).send('An error occurred while sending the file');
-		} else {
-			console.log('File sent successfully');
-		}
-	});*/
 });
 
 const authenticatorJWT = (auth) => {
@@ -121,52 +101,38 @@ app.post('/login-request', (req, res, next) => {
 	}
 });
 
+io.on('connection', (socket) => {
+	console.log('user connected via socket.io');
+	socket.on('request-tickets', () => {
+		console.log('sending raw db data using socket.io');
+
+		let query = 'SELECT * FROM `tickets`';
+		db.query(query, (err, rows, fields) => {
+			if (!err) {
+				io.emit('ticket-data', rows);
+			} else {
+				console.error(err);
+			}
+		});
+	});
+	socket.on('complete-ticket', (log) => {
+		console.log(
+			'completed ticket request recieved! Processing MySQL query...'
+		);
+		let id = crypto.randomBytes(8).toString('hex');
+		const data = [id, log];
+		let query = 'INSERT INTO `data-share-logs` (id, log) VALUES (?)';
+		db.query(query, [data], (err, rows, fields) => {
+			if (!err) {
+				console.log(
+					'ticket completion request finalized and logged successfully!'
+				);
+			} else {
+				console.error(err);
+			}
+		});
+	});
+});
 http.listen(PORT, () => {
 	console.log('Server Started using port:', PORT);
 });
-
-/*
-
-
-const authToken = (req, res, next) => {
-//Handle admin logon requests
-const authenticatorJWT = (auth) => {
-	console.log('auth tokens');
-};
-app.post('/login-request', (req, res, next) => {
-	const { username, password } = req.body;
-	if (username === 'admin' && password === 'password') {
-		const token = jwt.sign({ username }, 'test');
-		console.log('valid', req.body);
-		res.status(200).json({ token: token });
-	} else {
-		console.log('invalid', req.body);
-		return res.status(401).json({ message: 'invalid credentials' });
-	}
-});
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-    if(token === null) {
-        return res.sendStatus(401);
-    }
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if(err) {
-            return res.sendStatus(403);
-        }
-        req.user = user
-        next();
-    });
-}
-
-
-
-
-
- if(req.body.username === "admin" && req.body.password === "password"){
-        const token = jwt.sign({username}, 'test');
-        res.cookie(token);
-        res.redirect('/tickets')
-    console.log('error');
-   }
-    next();
-*/
