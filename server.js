@@ -103,6 +103,11 @@ app.post('/login-request', (req, res, next) => {
 
 io.on('connection', (socket) => {
 	console.log('user connected via socket.io');
+
+	socket.on('form-submit-request', (isFormSubmit) => {
+		isFormSubmit = true;
+		io.to(socket.id).emit('form-complete', isFormSubmit);
+	});
 	socket.on('request-tickets', () => {
 		console.log('sending raw db data using socket.io');
 

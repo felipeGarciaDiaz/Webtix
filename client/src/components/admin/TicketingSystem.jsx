@@ -26,14 +26,6 @@ function TicketingSystem(props) {
 					description={row.description}
 				/>
 			))}
-			<Ticket
-				key={1}
-				firstName="hannah"
-				lastName="parvati"
-				phone="813.995.5899"
-				email="hannah.parvati@jpm.com"
-				description="The servers in server room QA99 are down and need to have a security patch implemented due to a high risk vulnerability affecting multiple different organizations. Thank you!"
-			/>
 		</div>
 	);
 }
