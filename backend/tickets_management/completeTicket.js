@@ -1,3 +1,6 @@
+// This code is responsible for logging the completion of a ticket to the database.
+// This code is executed when a user completes a ticket, and the ticket is logged to the database.
+
 module.exports = function (socket, db, crypto) {
 	socket.on('complete-ticket', (log) => {
 		console.log(

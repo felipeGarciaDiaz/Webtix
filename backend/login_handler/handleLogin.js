@@ -1,3 +1,6 @@
+// Purpose: Handles login requests
+// Notes: This is a very simple login handler, it is not secure and should not be used in production.
+
 const jwt = require('jsonwebtoken');
 module.exports = (req, res, next) => {
 	const { username, password } = req.body;
