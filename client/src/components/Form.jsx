@@ -54,7 +54,6 @@ function Form(props) {
 								sx="width: 80%"
 								id="form-first-name"
 								label="First Name"
-								pattern="/^[A-Za-z\s\-']+$/"
 								variant="outlined"
 								name="firstName"
 								onChange={(e) => setFirstName(e.target.value)}
@@ -66,10 +65,6 @@ function Form(props) {
 								id="form-last-name"
 								label="Last Name"
 								type="text"
-								inputProps={{
-									inputMode: 'text',
-									pattern: /^[A-Za-z\s\-']+$/,
-								}}
 								variant="outlined"
 								name="lastName"
 								onChange={(e) => setLastName(e.target.value)}
@@ -97,7 +92,11 @@ function Form(props) {
 								id="form-phone"
 								label="Phone"
 								type="tel"
-								pattern="/^(\+\d{1,3}\s?)?(\d{1,3}[-.\s]?)?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/gm"
+								inputProps={{
+									inputMode: 'email',
+									pattern:
+										/^(\+\d{1,3}\s?)?(\d{1,3}[-.\s]?)?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/gm,
+								}}
 								variant="outlined"
 								name="phone"
 								onChange={(e) => setPhone(e.target.value)}
