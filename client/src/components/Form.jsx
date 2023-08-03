@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, TextField, Button } from '@mui/material';
 import socket from './utils/socket';
+import SentimentVerySatisfiedRoundedIcon from '@mui/icons-material/SentimentVerySatisfiedRounded';
 function Form(props) {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
@@ -8,7 +9,7 @@ function Form(props) {
 	const [phone, setPhone] = useState('');
 	const [request, setRequest] = useState('');
 
-	const [isSubmit, setSubmit] = useState(false);
+	const [isSubmit, setSubmit] = useState('');
 	//instead of <form action='/repair' method='post' use fetch('/repair', {method: 'POST'})
 
 	let getSubmitResponse = async (e) => {
@@ -53,6 +54,7 @@ function Form(props) {
 								sx="width: 80%"
 								id="form-first-name"
 								label="First Name"
+								pattern="/^[A-Za-z\s\-']+$/"
 								variant="outlined"
 								name="firstName"
 								onChange={(e) => setFirstName(e.target.value)}
@@ -63,6 +65,11 @@ function Form(props) {
 								sx="width: 80%"
 								id="form-last-name"
 								label="Last Name"
+								type="text"
+								inputProps={{
+									inputMode: 'text',
+									pattern: /^[A-Za-z\s\-']+$/,
+								}}
 								variant="outlined"
 								name="lastName"
 								onChange={(e) => setLastName(e.target.value)}
@@ -73,6 +80,12 @@ function Form(props) {
 								sx="width: 90%"
 								id="form-email"
 								label="Email"
+								type="email"
+								inputProps={{
+									inputMode: 'email',
+									pattern:
+										/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+								}}
 								variant="outlined"
 								name="email"
 								onChange={(e) => setEmail(e.target.value)}
@@ -83,6 +96,8 @@ function Form(props) {
 								sx="width: 90%"
 								id="form-phone"
 								label="Phone"
+								type="tel"
+								pattern="/^(\+\d{1,3}\s?)?(\d{1,3}[-.\s]?)?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/gm"
 								variant="outlined"
 								name="phone"
 								onChange={(e) => setPhone(e.target.value)}
@@ -94,6 +109,12 @@ function Form(props) {
 								multiline
 								rows={4}
 								placeholder="Let us know what your issue is:"
+								type="text"
+								inputProps={{
+									inputMode: 'text',
+									pattern:
+										/^[\w\s.,?!@#$%^&*()-[\]{}:;"'<>\|]+$/u,
+								}}
 								sx="width: 90%"
 								name="request"
 								onChange={(e) => setRequest(e.target.value)}
@@ -115,7 +136,10 @@ function Form(props) {
 	} else {
 		return (
 			<React.Fragment>
-				<h1>Thank you for submitting your request!</h1>
+				<h1 id="form-submit-response">
+					Thank you for submitting your request!
+				</h1>
+				<SentimentVerySatisfiedRoundedIcon id="form-submit-response-icon" />
 			</React.Fragment>
 		);
 	}

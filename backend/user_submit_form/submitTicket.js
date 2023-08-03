@@ -1,3 +1,7 @@
+// This file is used to submit a ticket to the database, it is called from the
+// webtix-platform/backend/user_submit_form/submitTicketResponse.js file.
+// This file is executed when the client submits the form.
+
 module.exports = function (req, res, db, crypto) {
 	//Prepare and submit the form to the mySQL server, for security using ? as operators
 
@@ -22,17 +26,26 @@ module.exports = function (req, res, db, crypto) {
 	];
 
 	//Handle the request, and error out or send to the server
-
-	db.query(query, [data], (err, rows, fields) => {
-		if (!err) {
-			console.log(
-				'Repair was succesfully sent to the servers database! \n Records: ' +
-					fields
-			);
-		} else {
-			console.log(err);
-		}
-	});
+	if (
+		regexName.test(req.body.firstName) &&
+		regexName.test(req.body.lastName) &&
+		regexEmail.test(req.body.email) &&
+		regexPhone.test(req.body.phone) &&
+		regExDescription.test(req.body.request)
+	) {
+		db.query(query, [data], (err, rows, fields) => {
+			if (!err) {
+				console.log(
+					'Repair was succesfully sent to the servers database! \n Records: ' +
+						fields
+				);
+			} else {
+				console.log(err);
+			}
+		});
+	} else {
+		console.error('Form validation error, mismatached regex!!!');
+	}
 	//Log requests for dev build only
 	console.log(
 		req.body.firstName,
