@@ -15,6 +15,7 @@ function Ticket(props) {
 			<div id="ticket-body" style={{ display: ticketVisible }}>
 				<div id="ticket-description">
 					<h5>
+						{props.id}
 						{props.firstName}, {props.lastName}
 					</h5>
 					<h6>

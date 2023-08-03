@@ -19,6 +19,7 @@ function TicketingSystem(props) {
 			{ticketData.map((row) => (
 				<Ticket
 					key={row.id}
+					id={row.id}
 					firstName={row.firstName}
 					lastName={row.lastName}
 					phone={row.phone}
