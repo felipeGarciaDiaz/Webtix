@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, TextField, Button } from '@mui/material';
-import socket from './utils/socket';
+import './Form.scss';
+import socket from './../../../Utils/Networking/socket';
 import SentimentVerySatisfiedRoundedIcon from '@mui/icons-material/SentimentVerySatisfiedRounded';
 function Form(props) {
 	const [firstName, setFirstName] = useState('');

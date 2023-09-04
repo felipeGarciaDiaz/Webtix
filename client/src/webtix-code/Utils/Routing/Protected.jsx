@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import React from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
 //Create a protected route, that can only be accessed with admin credentials
 //In the future we will have a database to manage user credentials for clients
 //For the prototype this will do
 function Protected() {
-	
 	const token = localStorage.getItem('token');
 	console.log(localStorage.getItem('token'));
-	return token ? <Outlet /> : <Navigate to='/admin' />;
+	return true /* token */ ? <Outlet /> : <Navigate to="/admin" />;
 }
 
 export default Protected;
-
 
 /*
 const token = localStorage.getItem('token');

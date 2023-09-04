@@ -1,9 +1,7 @@
 import React from 'react';
-import Home from '../Home';
-import Nav from '../NavBar';
-import Services from '../Services';
-import TicketingSystem from './TicketingSystem';
-import Login from './Login';
+import Home from '../../views/Ticket-Submit-Page/Home';
+import TicketingSystem from '../../views/Local-Admin-Page/TicketingSystem';
+import Login from '../../views/Local-Login-Page/Login';
 import Protected from './Protected';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 

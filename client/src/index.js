@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './input.css';
-import './components/media/style.css'
-import Service from "./components/admin/Service";
-
+import './global.scss';
+import Service from './webtix-code/Utils/Routing/Service';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Service />
-  </React.StrictMode>
+	<React.StrictMode>
+		<Service />
+	</React.StrictMode>
 );

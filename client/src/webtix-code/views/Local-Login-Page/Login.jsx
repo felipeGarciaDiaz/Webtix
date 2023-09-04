@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Grid, Typography, TextField, Button } from '@mui/material';
-import './media/login.css';
+import './Login.scss';
 
 function Login(props) {
 	// State variables

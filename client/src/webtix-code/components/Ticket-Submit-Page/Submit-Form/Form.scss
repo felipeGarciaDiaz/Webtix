@@ -1,0 +1,28 @@
+#submit-repair-request {
+	padding: 1% 5% 1% 5%;
+	font-weight: bold;
+	margin-bottom: 5%;
+}
+#form-submit-response {
+	color: #222222;
+	font-family: 'Quicksand', sans-serif;
+	padding: 5% 5% 5% 5%;
+}
+@media (max-width: 600px) {
+	#form-submit-response-icon {
+		color: #222222;
+		font-size: 10vw;
+		padding-bottom: 5%;
+	}
+}
+@media (min-width: 601px) {
+	#form-submit-response-icon {
+		color: #222222;
+		font-size: 3vw;
+		padding-bottom: 5%;
+	}
+}
+#services-block {
+	margin-top: 10%;
+	color: #757575;
+}

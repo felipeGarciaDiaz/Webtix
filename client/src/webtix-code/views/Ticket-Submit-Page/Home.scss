@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #eeeeee;
+}
+
+#content-block {
+	margin-top: 5%;
+	color: #222222;
+	background-color: #ffffff;
+	font-family: 'Quicksand', sans-serif;
+	border-radius: 10px;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#content-title {
+	padding-top: 5%;
+	font-size: 4vw;
+	color: #398ab9;
+}
+#content-desc {
+	margin: 2% 4% 2% 4%;
+}
+
+#spacer {
+	padding-bottom: 3%;
+}
+@media screen and (max-width: 600px) {
+	#content-block {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	#content-title {
+		font-size: 200%;
+	}
+}

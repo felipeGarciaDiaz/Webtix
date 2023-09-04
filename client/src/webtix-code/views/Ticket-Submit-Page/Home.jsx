@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import NavBar from './NavBar';
-import Form from './Form';
-import Services from './Services';
-import './media/style.css';
+import NavBar from '../../components/Ticket-Submit-Page/Navigation-Bar/NavBar';
+import Form from '../../components/Ticket-Submit-Page/Submit-Form/Form';
+import Services from '../../components/Ticket-Submit-Page/Services-Offered/Services';
+import './Home.scss';
 import { Grid, Typography } from '@mui/material';
 import {
 	AttachMoney,
@@ -56,7 +56,7 @@ function Home(props) {
 				<Typography align="center">
 					<div id="content-block">
 						<h1 id="content-title" className="text-7xl text-center">
-							Webtix
+							Webtix!!!!!
 						</h1>
 						<p id="content-desc" className="text-2xl text-center">
 							We are the creators of the webtix platform! This
